@@ -1,0 +1,30 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #7a004b;
+  --color-ivory: #fffefa;
+  --color-on-surface: #24181f;
+  --color-muted: #6f5b66;
+}
+
+html, body {
+  font-family: 'Century Gothic', CenturyGothic, AppleGothic, 'Outfit', sans-serif;
+  background-color: #FAF5EE !important;
+  color: #24181f;
+  overscroll-behavior: none;
+}
+
+.headline-fade {
+  transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1),
+    transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.headline-fade.opacity-0 {
+  opacity: 0;
+  transform: translateY(8px);
+}
+
+::selection {
+  background-color: rgba(122, 0, 75, 0.15);
+  color: #7a004b;
+}
