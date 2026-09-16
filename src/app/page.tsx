@@ -106,7 +106,9 @@ export default function Home() {
             Launching Soon
           </span>
           <div className="inline-flex items-center gap-1 text-[11px] uppercase tracking-[0.18em] font-semibold text-neutral-600">
-            <span className="material-symbols-outlined text-[14px] text-[#7a004b]">location_on</span>
+            <svg className="w-3.5 h-3.5 text-[#7a004b] fill-current shrink-0" viewBox="0 0 24 24">
+              <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+            </svg>
             Gurugram
           </div>
         </div>
@@ -145,7 +147,9 @@ export default function Home() {
           </div>
           <div className="flex-1 flex items-center justify-end">
             <div className="inline-flex items-center gap-1.5 text-[12px] uppercase tracking-[0.2em] font-semibold text-neutral-600 hover:text-[#7a004b] transition-colors cursor-default">
-              <span className="material-symbols-outlined text-[15px] text-[#7a004b]">location_on</span>
+              <svg className="w-3.5 h-3.5 text-[#7a004b] fill-current shrink-0" viewBox="0 0 24 24">
+                <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+              </svg>
               <span>Gurugram</span>
             </div>
           </div>
@@ -218,7 +222,9 @@ export default function Home() {
               onClick={closeModal}
               className="absolute top-4 right-4 text-neutral-400 hover:text-[#7a004b] transition-colors p-2 min-h-[44px] min-w-[44px] flex items-center justify-center"
             >
-              <span className="material-symbols-outlined text-[22px]">close</span>
+              <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24">
+                <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/>
+              </svg>
             </button>
 
             {/* Handle bar on mobile */}
@@ -253,9 +259,9 @@ export default function Home() {
                     "Resident-Friendly Policies",
                   ].map((benefit, idx) => (
                     <div key={idx} className="flex items-center gap-2">
-                      <span className="material-symbols-outlined text-[17px] text-[#7a004b] shrink-0">
-                        check_circle
-                      </span>
+                      <svg className="w-4 h-4 text-[#7a004b] fill-current shrink-0" viewBox="0 0 24 24">
+                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                      </svg>
                       <span className="text-xs font-medium text-[#24181f]">
                         {benefit}
                       </span>
@@ -271,7 +277,9 @@ export default function Home() {
                     rel="noopener noreferrer"
                     className="flex-1 py-3.5 rounded-full bg-[#7a004b] hover:bg-[#60003b] active:scale-[0.98] text-[#fffefa] text-xs uppercase tracking-wider font-semibold transition-colors shadow-sm min-h-[44px] flex items-center justify-center gap-2"
                   >
-                    <span className="material-symbols-outlined text-[18px]">chat</span>
+                    <svg className="w-4 h-4 fill-current shrink-0" viewBox="0 0 24 24">
+                      <path d="M20 2H4c-1.1 0-1.99.9-1.99 2L2 22l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM6 9h12v2H6V9zm8 5H6v-2h8v2zm4-6H6V6h12v2z"/>
+                    </svg>
                     <span>Inquire via WhatsApp</span>
                   </a>
                 </div>
@@ -291,9 +299,9 @@ export default function Home() {
                     "Professional Property Standards",
                   ].map((benefit, idx) => (
                     <div key={idx} className="flex items-center gap-2">
-                      <span className="material-symbols-outlined text-[17px] text-[#7a004b] shrink-0">
-                        check_circle
-                      </span>
+                      <svg className="w-4 h-4 text-[#7a004b] fill-current shrink-0" viewBox="0 0 24 24">
+                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                      </svg>
                       <span className="text-xs font-medium text-[#24181f]">
                         {benefit}
                       </span>
@@ -309,7 +317,9 @@ export default function Home() {
                     rel="noopener noreferrer"
                     className="flex-1 py-3.5 rounded-full bg-[#7a004b] hover:bg-[#60003b] active:scale-[0.98] text-[#fffefa] text-xs uppercase tracking-wider font-semibold transition-colors shadow-sm min-h-[44px] flex items-center justify-center gap-2"
                   >
-                    <span className="material-symbols-outlined text-[18px]">handshake</span>
+                    <svg className="w-4 h-4 fill-current shrink-0" viewBox="0 0 24 24">
+                      <path d="M11 12.5a.75.75 0 0 0 1.5 0v-2.5a.75.75 0 0 0-1.5 0v2.5zm3.75 1.5a.75.75 0 0 0 1.5 0v-3.5a.75.75 0 0 0-1.5 0v3.5zm-7.5 0a.75.75 0 0 0 1.5 0v-3.5a.75.75 0 0 0-1.5 0v3.5zM7.5 8a2.5 2.5 0 0 1 5 0v1h-5V8zm12.75 4.5c.41 0 .75.34.75.75v5.25a2.5 2.5 0 0 1-2.5 2.5h-13a2.5 2.5 0 0 1-2.5-2.5V13.25c0-.41.34-.75.75-.75h1.75V10a4 4 0 0 1 8 0v2.5h6.75z"/>
+                    </svg>
                     <span>Partner with twenty49</span>
                   </a>
                 </div>
@@ -335,14 +345,18 @@ export default function Home() {
                       href="mailto:hello.twenty49@gmail.com"
                       className="flex items-center gap-2 hover:text-[#7a004b] transition-colors"
                     >
-                      <span className="material-symbols-outlined text-[16px] text-[#7a004b]">mail</span>
+                      <svg className="w-4 h-4 text-[#7a004b] fill-current shrink-0" viewBox="0 0 24 24">
+                        <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+                      </svg>
                       <span>hello.twenty49@gmail.com</span>
                     </a>
                     <a
                       href="tel:+919892192473"
                       className="flex items-center gap-2 hover:text-[#7a004b] transition-colors"
                     >
-                      <span className="material-symbols-outlined text-[16px] text-[#7a004b]">call</span>
+                      <svg className="w-4 h-4 text-[#7a004b] fill-current shrink-0" viewBox="0 0 24 24">
+                        <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
+                      </svg>
                       <span>+91 98921 92473</span>
                     </a>
                   </div>
@@ -356,14 +370,18 @@ export default function Home() {
                     rel="noopener noreferrer"
                     className="flex-1 py-3.5 rounded-full bg-[#7a004b] hover:bg-[#60003b] active:scale-[0.98] text-[#fffefa] text-xs uppercase tracking-wider font-semibold transition-colors shadow-sm min-h-[44px] flex items-center justify-center gap-2"
                   >
-                    <span className="material-symbols-outlined text-[18px]">chat</span>
+                    <svg className="w-4 h-4 fill-current shrink-0" viewBox="0 0 24 24">
+                      <path d="M20 2H4c-1.1 0-1.99.9-1.99 2L2 22l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM6 9h12v2H6V9zm8 5H6v-2h8v2zm4-6H6V6h12v2z"/>
+                    </svg>
                     <span>Chat on WhatsApp</span>
                   </a>
                   <a
                     href="mailto:hello.twenty49@gmail.com"
-                    className="px-4 py-3.5 rounded-full border border-[#7a004b]/30 text-[#7a004b] hover:bg-[#7a004b]/5 text-xs font-semibold flex items-center justify-center gap-1.5 transition-colors min-h-[44px]"
+                    className="px-4 py-3.5 rounded-full border border-[#7a004b]/30 text-[#7a004b] hover:bg-[#7a004b]/5 text-xs font-semibold flex items-center justify-center gap-1.5 transition-colors min-h-[44px] flex items-center gap-1.5"
                   >
-                    <span className="material-symbols-outlined text-[16px]">mail</span>
+                    <svg className="w-4 h-4 text-[#7a004b] fill-current shrink-0" viewBox="0 0 24 24">
+                      <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+                    </svg>
                     <span>Email Us</span>
                   </a>
                 </div>
