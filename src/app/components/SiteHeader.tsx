@@ -76,12 +76,17 @@ export default function SiteHeader() {
           >
             Mission
           </Link>
-          <Link
-            href="/contact"
-            className={`${glass} sm:col-start-3 sm:row-start-1 sm:justify-self-end`}
-          >
-            Contact
-          </Link>
+          <div className="sm:col-start-3 sm:row-start-1 sm:justify-self-end flex items-center gap-3">
+            <Link href="/contact" className={glass}>
+              Contact
+            </Link>
+            <Link
+              href="/login"
+              className="btn btn-primary !min-h-[48px] !px-6 !rounded-full"
+            >
+              Get started
+            </Link>
+          </div>
         </nav>
       </header>
 
@@ -149,7 +154,15 @@ export default function SiteHeader() {
             ))}
           </nav>
 
-          <Arches className="mt-auto h-[120px] shrink-0" />
+          <Link
+            href="/login"
+            onClick={() => setOpen(false)}
+            className="btn btn-primary w-full mt-8 !min-h-[56px] text-lg"
+          >
+            Get started, it&apos;s free
+          </Link>
+
+          <Arches className="mt-auto pt-0 h-[120px] shrink-0" />
         </div>
       )}
     </>
