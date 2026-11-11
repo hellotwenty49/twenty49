@@ -17,9 +17,9 @@ const jakarta = Plus_Jakarta_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "twenty49 — Curated Living Gurugram",
+  title: "Find your flatmates",
   description:
-    "Curated rental living for modern professionals in Gurugram. Zero brokerage. Vetted flatmates. Designer rooms.",
+    "Match with compatible flatmates, skip the broker, and fill an empty room in days. Flat sharing in Gurugram, made simple.",
   viewport: "width=device-width, initial-scale=1, viewport-fit=cover",
   themeColor: "#F5E8CC",
 };

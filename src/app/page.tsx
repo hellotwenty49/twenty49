@@ -4,9 +4,9 @@ import { useState, useEffect, useRef } from "react";
 import Logo from "./components/Logo";
 
 const headlines = [
-  "Curated rental living for modern professionals.",
-  "Zero brokerage. Vetted flatmates. Designer rooms.",
-  "One stop solution for your room rental needs.",
+  "Find your people. Skip the broker.",
+  "Someone moved out? Fill the room by Friday.",
+  "Rooms come and go. Flatmates fit.",
 ];
 
 type ModalData = {
@@ -16,20 +16,15 @@ type ModalData = {
 };
 
 const modalContent: Record<string, ModalData> = {
-  Rentals: {
-    category: "Rentals",
-    title: "Live Well. We Handle the Rest.",
-    desc: "3BHK, 4BHK, and 5BHK properties",
+  "Create account": {
+    category: "Create account",
+    title: "Join twenty49.",
+    desc: "Set up your account to find rooms and flatmates.",
   },
-  Owners: {
-    category: "Owners",
-    title: "Your Property. Our Responsibility.",
-    desc: "3BHK, 4BHK, and 5BHK properties",
-  },
-  Contact: {
-    category: "Contact",
-    title: "Direct Concierge Desk",
-    desc: "Need immediate relocation advice or soft launch inquiries? Reach out directly to our Gurugram executive concierge desk.",
+  "Sign in": {
+    category: "Sign in",
+    title: "Welcome back.",
+    desc: "Sign in to pick up where you left off.",
   },
 };
 
@@ -38,9 +33,6 @@ export default function Home() {
   const [fading, setFading] = useState(false);
   const [modal, setModal] = useState<ModalData | null>(null);
   const [modalSuccess, setModalSuccess] = useState(false);
-  const [modalName, setModalName] = useState("");
-  const [modalContact, setModalContact] = useState("");
-  const [modalNote, setModalNote] = useState("");
   const intervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
 
   const goToHeadline = (index: number) => {
@@ -60,7 +52,7 @@ export default function Home() {
         setCurrentIndex((prev) => (prev + 1) % headlines.length);
         setFading(false);
       }, 300);
-    }, 4200);
+    }, 1500);
   };
 
   useEffect(() => {
@@ -79,9 +71,6 @@ export default function Home() {
   const openModal = (key: string) => {
     setModal(modalContent[key]);
     setModalSuccess(false);
-    setModalName("");
-    setModalContact("");
-    setModalNote("");
   };
 
   const closeModal = () => setModal(null);
@@ -140,11 +129,11 @@ export default function Home() {
 
         {/* Buttons */}
         <nav aria-label="Primary" className="flex items-center justify-center flex-wrap gap-3 sm:gap-4">
-          {(["Rentals", "Owners", "Contact"] as const).map((key) => (
+          {(["Create account", "Sign in"] as const).map((key) => (
             <button
               key={key}
               onClick={() => openModal(key)}
-              className={`btn ${key === "Rentals" ? "btn-primary" : "btn-secondary"} min-w-[140px]`}
+              className={`btn ${key === "Create account" ? "btn-primary" : "btn-secondary"} min-w-[170px]`}
             >
               {key}
             </button>
@@ -223,131 +212,52 @@ export default function Home() {
             </div>
 
             {/* Modal Content */}
-            {modal.category === "Rentals" ? (
-              <div className="flex flex-col gap-5 text-left">
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 bg-sand p-5 rounded-[22px]">
-                  {[
-                    "Fully Furnished",
-                    "High-Speed Wi-Fi",
-                    "Maintenance Included",
-                    "Fitness & Lifestyle Spaces",
-                    "Community of Professionals",
-                    "24/7 Resident Support",
-                    "No Brokerage",
-                    "Resident-Friendly Policies",
-                  ].map((benefit, idx) => (
-                    <div key={idx} className="flex items-center gap-2.5">
-                      <svg className="w-4 h-4 text-plum fill-current shrink-0" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
-                      <span className="text-sm font-semibold text-ink">
-                        {benefit}
-                      </span>
-                    </div>
-                  ))}
-                </div>
-
-                <div className="flex items-center gap-3 pt-1">
-                <a
-                  href="https://wa.me/919892192473?text=Hi%20twenty49,%20I%20am%20interested%20in%203BHK/4BHK/5BHK%20rental%20properties."
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="btn btn-primary flex-1"
-                >
-                  <svg className="w-5 h-5 fill-current shrink-0" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 2H4c-1.1 0-1.99.9-1.99 2L2 22l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM6 9h12v2H6V9zm8 5H6v-2h8v2zm4-6H6V6h12v2z"/></svg>
-                  <span>Inquire via WhatsApp</span>
-                </a>
-                </div>
-              </div>
-            ) : modal.category === "Owners" ? (
-              <div className="flex flex-col gap-5 text-left">
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 bg-sand p-5 rounded-[22px]">
-                  {[
-                    "End-to-End Property Management",
-                    "Tenant Sourcing & Screening",
-                    "Reliable Rent Collection",
-                    "Maintenance & Upkeep",
-                    "Transparent Reporting",
-                    "Dedicated Property Support",
-                    "Occupancy Management",
-                    "Professional Property Standards",
-                  ].map((benefit, idx) => (
-                    <div key={idx} className="flex items-center gap-2.5">
-                      <svg className="w-4 h-4 text-plum fill-current shrink-0" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
-                      <span className="text-sm font-semibold text-ink">
-                        {benefit}
-                      </span>
-                    </div>
-                  ))}
-                </div>
-
-                <div className="flex items-center gap-3 pt-1">
-                <a
-                  href="https://wa.me/919892192473?text=Hi%20twenty49,%20I%20am%20a%20property%20owner%20interested%20in%20twenty49%20management%20services."
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="btn btn-primary flex-1"
-                >
-                  <svg className="w-5 h-5 fill-current shrink-0" viewBox="0 0 24 24" aria-hidden="true"><path d="M11 12.5a.75.75 0 0 0 1.5 0v-2.5a.75.75 0 0 0-1.5 0v2.5zm3.75 1.5a.75.75 0 0 0 1.5 0v-3.5a.75.75 0 0 0-1.5 0v3.5zm-7.5 0a.75.75 0 0 0 1.5 0v-3.5a.75.75 0 0 0-1.5 0v3.5zM7.5 8a2.5 2.5 0 0 1 5 0v1h-5V8zm12.75 4.5c.41 0 .75.34.75.75v5.25a2.5 2.5 0 0 1-2.5 2.5h-13a2.5 2.5 0 0 1-2.5-2.5V13.25c0-.41.34-.75.75-.75h1.75V10a4 4 0 0 1 8 0v2.5h6.75z"/></svg>
-                  <span>Partner with twenty49</span>
-                </a>
-                </div>
-              </div>
-            ) : (
-              <div className="flex flex-col gap-4 text-left">
-                <div className="bg-sand p-5 rounded-[22px] flex flex-col gap-3">
-                  <div className="border-b border-plum/20 pb-3">
-                    <span className="label text-plum">
-                      Founder
-                    </span>
-                    <h4 className="text-xl text-ink mt-1">
-                      Shashank Gupta
-                    </h4>
-                    <p className="text-sm text-plum mt-1">
-                      Former Four Seasons, Ritz Carlton, and Marriott
-                    </p>
-                  </div>
-
-                  <div className="flex flex-col gap-1 text-sm font-semibold text-ink">
-                    <a
-                      href="mailto:hello.twenty49@gmail.com"
-                      className="flex items-center gap-2.5 min-h-[44px] hover:text-plum transition-colors"
-                    >
-                      <span className="text-plum"><svg className="w-5 h-5 fill-current shrink-0" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg></span>
-                      <span>hello.twenty49@gmail.com</span>
-                    </a>
-                    <a
-                      href="tel:+919892192473"
-                      className="flex items-center gap-2.5 min-h-[44px] hover:text-plum transition-colors"
-                    >
-                      <span className="text-plum"><svg className="w-5 h-5 fill-current shrink-0" viewBox="0 0 24 24" aria-hidden="true"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg></span>
-                      <span>+91 98921 92473</span>
-                    </a>
-                  </div>
-                </div>
-
-                <div className="flex flex-col sm:flex-row items-stretch gap-3 pt-1">
-                <a
-                  href="https://wa.me/919892192473?text=Hi%20Shashank,%20I%20would%20like%20to%20know%20more%20about%20twenty49."
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="btn btn-primary flex-1"
-                >
-                  <svg className="w-5 h-5 fill-current shrink-0" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 2H4c-1.1 0-1.99.9-1.99 2L2 22l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM6 9h12v2H6V9zm8 5H6v-2h8v2zm4-6H6V6h12v2z"/></svg>
-                  <span>Chat on WhatsApp</span>
-                </a>
-                  <a
-                    href="mailto:hello.twenty49@gmail.com"
-                    className="btn btn-secondary"
-                  >
-                    <svg className="w-5 h-5 fill-current shrink-0" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
-                    <span>Email Us</span>
-                  </a>
-                </div>
-              </div>
-            )}
+            <form onSubmit={handleModalSubmit} className="flex flex-col gap-4 text-left">
+              {modal.category === "Create account" && (
+                <label className="flex flex-col gap-1.5">
+                  <span className="label text-plum">Name</span>
+                  <input
+                    type="text"
+                    name="name"
+                    autoComplete="name"
+                    required
+                    className="input"
+                  />
+                </label>
+              )}
+              <label className="flex flex-col gap-1.5">
+                <span className="label text-plum">Email</span>
+                <input
+                  type="email"
+                  name="email"
+                  autoComplete="email"
+                  required
+                  className="input"
+                />
+              </label>
+              <label className="flex flex-col gap-1.5">
+                <span className="label text-plum">Password</span>
+                <input
+                  type="password"
+                  name="password"
+                  autoComplete={
+                    modal.category === "Create account"
+                      ? "new-password"
+                      : "current-password"
+                  }
+                  required
+                  minLength={8}
+                  className="input"
+                />
+              </label>
+              <button type="submit" className="btn btn-primary w-full mt-1">
+                {modal.category}
+              </button>
+            </form>
 
             {modalSuccess && (
               <p role="status" className="text-sm text-plum font-semibold text-center mt-4">
-                ✓ Thank you! The twenty49 concierge will reach out directly.
+                ✓ Thanks! Accounts aren&apos;t live yet. We&apos;ll be in touch when they open.
               </p>
             )}
           </div>

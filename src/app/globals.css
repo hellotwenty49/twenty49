@@ -107,6 +107,23 @@ h4 {
   color: var(--cream);
 }
 
+/* ── Inputs ── */
+.input {
+  width: 100%;
+  min-height: 48px;
+  padding: 0 16px;
+  border-radius: var(--radius-input);
+  border: 2px solid var(--sand);
+  background-color: var(--paper);
+  color: var(--ink);
+  font-size: 16px;
+}
+.input:focus-visible {
+  outline: 3px solid var(--coral);
+  outline-offset: 2px;
+  border-radius: var(--radius-input);
+}
+
 /* ── Chips ── */
 .chip {
   display: inline-flex;
