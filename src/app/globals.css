@@ -1,19 +1,137 @@
 @import "tailwindcss";
 
-@theme {
-  --color-primary: #7a004b;
-  --color-ivory: #fffefa;
-  --color-on-surface: #24181f;
-  --color-muted: #6f5b66;
+/* ── Twenty49 design tokens ── */
+:root {
+  --cream: #f5e8cc; /* page background */
+  --paper: #fdf6e6; /* cards */
+  --sand: #ebdab5; /* chips, dividers, secondary fills */
+  --coral: #f34e3d; /* primary accent */
+  --plum: #55263d; /* secondary text, secondary buttons, dark sections */
+  --ink: #2b1020; /* main text, text on coral */
+  --apricot: #ffaa76; /* supporting tint */
+  --lavender: #e3d9ef; /* supporting tint */
+  --muted-on-plum: #d9c2b8; /* secondary text on plum (also #ebdab5) */
+
+  --radius-card: 24px;
+  --radius-panel: 30px;
+  --radius-button: 16px;
+  --radius-input: 14px;
+  --shadow-float: 0 12px 32px rgba(43, 16, 32, 0.25);
+  --content-max: 1200px;
 }
 
-html, body {
-  font-family: 'Century Gothic', CenturyGothic, AppleGothic, 'Outfit', sans-serif;
-  background-color: #FAF5EE !important;
-  color: #24181f;
+@theme inline {
+  --color-cream: var(--cream);
+  --color-paper: var(--paper);
+  --color-sand: var(--sand);
+  --color-coral: var(--coral);
+  --color-plum: var(--plum);
+  --color-ink: var(--ink);
+  --color-apricot: var(--apricot);
+  --color-lavender: var(--lavender);
+  --color-muted-on-plum: var(--muted-on-plum);
+
+  --font-display: var(--font-bricolage), "Arial Black", sans-serif;
+  --font-sans: var(--font-jakarta), system-ui, sans-serif;
+
+  --radius-card: 24px;
+  --radius-panel: 30px;
+  --radius-button: 16px;
+  --radius-input: 14px;
+  --shadow-float: 0 12px 32px rgba(43, 16, 32, 0.25);
+}
+
+html,
+body {
+  font-family: var(--font-jakarta), system-ui, sans-serif;
+  background-color: var(--cream);
+  color: var(--ink);
+  font-size: 16px;
+  line-height: 1.6;
   overscroll-behavior: none;
 }
 
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-bricolage), "Arial Black", sans-serif;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  line-height: 1.05;
+  text-wrap: balance;
+}
+
+/* Small uppercase label */
+.label {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  line-height: 1.2;
+}
+
+/* ── Buttons ── */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 52px;
+  padding: 0 28px;
+  border-radius: var(--radius-button);
+  border: 2px solid transparent;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 1.2;
+  cursor: pointer;
+  transition: background-color 0.2s, color 0.2s, transform 0.2s;
+}
+.btn:active {
+  transform: scale(0.98);
+}
+.btn-primary {
+  background-color: var(--coral);
+  color: var(--ink);
+}
+.btn-primary:hover {
+  background-color: #e2402f;
+}
+.btn-secondary {
+  background-color: transparent;
+  border-color: var(--plum);
+  color: var(--plum);
+}
+.btn-secondary:hover {
+  background-color: var(--plum);
+  color: var(--cream);
+}
+
+/* ── Chips ── */
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 32px;
+  padding: 0 14px;
+  border-radius: 99px;
+  background-color: var(--sand);
+  color: var(--plum);
+  font-size: 12px;
+  font-weight: 600;
+}
+
+/* ── Visible keyboard focus ── */
+:focus-visible {
+  outline: 3px solid var(--coral);
+  outline-offset: 3px;
+  border-radius: 6px;
+}
+.on-dark :focus-visible {
+  outline-color: var(--cream);
+}
+
+/* ── Headline fade (rotating hero) ── */
 .headline-fade {
   transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1),
     transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
@@ -25,6 +143,20 @@ html, body {
 }
 
 ::selection {
-  background-color: rgba(122, 0, 75, 0.15);
-  color: #7a004b;
+  background-color: var(--coral);
+  color: var(--ink);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  .headline-fade.opacity-0 {
+    transform: none;
+  }
 }
