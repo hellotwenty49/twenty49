@@ -1,7 +1,9 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
-import Logo from "./components/Logo";
+import SiteHeader from "./components/SiteHeader";
+import SiteFooter from "./components/SiteFooter";
+import Arches from "./components/Arches";
 
 const headlines = [
   "Find your people. Skip the broker.",
@@ -84,14 +86,7 @@ export default function Home() {
   return (
     <div className="bg-cream min-h-[100dvh] flex flex-col">
 
-      {/* ── TOP BAR ── */}
-      <header className="w-full max-w-[1200px] mx-auto px-4 sm:px-6 pt-6 flex flex-col gap-4">
-        <div className="flex items-center justify-center py-2">
-          <a href="#" aria-label="twenty49 home" className="inline-flex items-center">
-            <Logo className="h-[90px] sm:h-[120px]" />
-          </a>
-        </div>
-      </header>
+      <SiteHeader />
 
       {/* ── HERO ── */}
       <main className="flex-1 flex flex-col items-center justify-center px-4 sm:px-6 py-8 sm:py-12 text-center max-w-[1200px] mx-auto w-full">
@@ -141,34 +136,10 @@ export default function Home() {
         </nav>
 
         {/* Arch illustration */}
-        <div
-          className="mt-12 sm:mt-16 w-full max-w-[1100px] h-[150px] sm:h-[220px] rounded-[30px] bg-coral relative overflow-hidden"
-          aria-hidden="true"
-        >
-          <svg
-            viewBox="0 0 600 220"
-            preserveAspectRatio="xMidYMax meet"
-            className="absolute inset-x-0 bottom-0 mx-auto h-full w-auto max-w-full"
-          >
-            <path d="M60 220V120a70 70 0 0 1 140 0v100z" fill="#55263D" />
-            <path d="M230 220V90a70 70 0 0 1 140 0v130z" fill="#F5E8CC" />
-            <path d="M400 220V130a70 70 0 0 1 140 0v90z" fill="#FFAA76" />
-            <path d="M100 220v-70a30 30 0 0 1 60 0v70z" fill="#F5E8CC" />
-            <path d="M270 220v-100a30 30 0 0 1 60 0v100z" fill="#55263D" />
-            <path d="M440 220v-60a30 30 0 0 1 60 0v60z" fill="#55263D" />
-          </svg>
-        </div>
+        <Arches className="mt-12 sm:mt-16 max-w-[1100px] h-[150px] sm:h-[220px]" />
       </main>
 
-      {/* ── FOOTER ── */}
-      <footer className="on-dark w-full bg-ink text-cream mt-8">
-        <div className="max-w-[1200px] mx-auto px-4 sm:px-6 py-10 flex flex-col sm:flex-row items-center justify-between gap-4">
-          <Logo variant="dark" className="h-[72px]" />
-          <p className="text-sm tracking-wider text-center text-muted-on-plum">
-            © 2026 twenty49
-          </p>
-        </div>
-      </footer>
+      <SiteFooter />
 
       {/* ── MODAL ── */}
       {modal && (
