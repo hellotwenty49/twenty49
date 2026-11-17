@@ -1,17 +1,18 @@
 import type { Metadata } from "next";
-import { Bricolage_Grotesque, Plus_Jakarta_Sans } from "next/font/google";
+import localFont from "next/font/local";
 import "./globals.css";
 
-const bricolage = Bricolage_Grotesque({
-  subsets: ["latin"],
-  weight: ["600", "800"],
+// Self-hosted (latin subset, variable) so builds and dev never depend on Google Fonts.
+const bricolage = localFont({
+  src: "./fonts/BricolageGrotesque-latin.woff2",
+  weight: "600 800",
   variable: "--font-bricolage",
   display: "swap",
 });
 
-const jakarta = Plus_Jakarta_Sans({
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
+const jakarta = localFont({
+  src: "./fonts/PlusJakartaSans-latin.woff2",
+  weight: "400 700",
   variable: "--font-jakarta",
   display: "swap",
 });

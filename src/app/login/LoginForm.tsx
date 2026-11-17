@@ -1,8 +1,9 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import Link from "next/link";
+import { useRouter } from "next/navigation";
 import OtpInput from "../components/OtpInput";
+import ErrorText from "../components/ErrorText";
 import {
   OTP_LENGTH,
   RESEND_SECONDS,
@@ -11,23 +12,13 @@ import {
   verifyOtp,
 } from "../lib/auth";
 
-type Step = "phone" | "otp" | "done";
+type Step = "phone" | "otp";
 
 const emptyOtp = () => Array<string>(OTP_LENGTH).fill("");
 const formatPhone = (d: string) => `+91 ${d.slice(0, 5)} ${d.slice(5)}`;
 
-function ErrorText({ id, children }: { id: string; children: React.ReactNode }) {
-  return (
-    <p id={id} role="alert" className="flex items-start gap-2 text-sm font-semibold text-ink">
-      <svg className="w-5 h-5 shrink-0 text-plum fill-current" viewBox="0 0 24 24" aria-hidden="true">
-        <path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z" />
-      </svg>
-      <span>{children}</span>
-    </p>
-  );
-}
-
 export default function LoginForm() {
+  const router = useRouter();
   const [step, setStep] = useState<Step>("phone");
   const [phone, setPhone] = useState(""); // 10 digits, no country code
   const [otp, setOtp] = useState<string[]>(emptyOtp);
@@ -77,14 +68,15 @@ export default function LoginForm() {
         setError("That code doesn't match. Check it and try again.");
         setOtp(emptyOtp());
         setOtpKey((k) => k + 1);
+        setLoading(false);
         return;
       }
-      setStep("done");
+      router.push("/onboarding");
+      return; // keep the button busy while we navigate
     } catch {
       setError("Something went wrong. Please try again.");
-    } finally {
-      setLoading(false);
     }
+    setLoading(false);
   };
 
   const onOtpChange = (next: string[]) => {
@@ -106,7 +98,7 @@ export default function LoginForm() {
   return (
     <section
       aria-labelledby="login-title"
-      className="w-full max-w-md bg-paper rounded-[28px] p-6 sm:p-10"
+      className="w-full max-w-md sm:pt-4"
     >
       {step === "phone" && (
         <>
@@ -217,20 +209,6 @@ export default function LoginForm() {
         </>
       )}
 
-      {step === "done" && (
-        <>
-          <p className="label text-plum">All set</p>
-          <h1 id="login-title" className="mt-2 text-[34px] sm:text-[40px] text-ink">
-            You&apos;re verified.
-          </h1>
-          <p className="mt-3 text-base text-plum">
-            Accounts aren&apos;t live yet. Check back soon, we&apos;re getting everything ready.
-          </p>
-          <Link href="/" className="btn btn-primary w-full mt-8">
-            Back to home
-          </Link>
-        </>
-      )}
     </section>
   );
 }

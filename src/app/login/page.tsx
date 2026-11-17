@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
-import SiteHeader from "../components/SiteHeader";
-import SiteFooter from "../components/SiteFooter";
+import AuthLayout from "../components/AuthLayout";
 import LoginForm from "./LoginForm";
 
 export const metadata: Metadata = {
@@ -11,12 +10,8 @@ export const metadata: Metadata = {
 
 export default function LoginPage() {
   return (
-    <div className="bg-cream min-h-[100dvh] flex flex-col">
-      <SiteHeader />
-      <main className="flex-1 w-full max-w-[1200px] mx-auto px-4 sm:px-6 pt-8 sm:pt-12 pb-16 flex justify-center items-start">
-        <LoginForm />
-      </main>
-      <SiteFooter />
-    </div>
+    <AuthLayout>
+      <LoginForm />
+    </AuthLayout>
   );
 }
